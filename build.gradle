@@ -1,0 +1,47 @@
+plugins {
+    id 'groovy'
+}
+
+group 'jenkins'
+version '2022.4.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.groovy:groovy:4.0.2'
+    testImplementation 'com.lesfurets:jenkins-pipeline-unit:1.1'
+    testImplementation 'junit:junit:4.13.1'
+}
+
+compileGroovy {
+    groovyOptions.configurationScript = file("config.groovy")
+}
+
+sourceSets {
+    main {
+        groovy {
+            // all code files will be in either of the folders
+            srcDirs = ['src', 'vars']
+        }
+        resources {
+            srcDirs = ['resources']
+        }
+    }
+    test {
+        groovy {
+            srcDirs 'test'
+        }
+    }
+}
+
+test {
+    useJUnit()
+
+    testLogging {
+        events 'started', 'passed'
+    }
+}
