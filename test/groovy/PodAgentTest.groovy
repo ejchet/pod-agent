@@ -78,7 +78,7 @@ spec:
     @Test
     void testPodAgent() {
 
-        def generatedYaml = podAgent('docker', 'k8s', 'gradle')
+        def generatedYaml = podAgent.generateYaml('docker', 'k8s', 'gradle')
         //println generatedYaml
         assertEquals "results", generatedYaml.trim().equals(podAgentYaml.trim()), true
     }

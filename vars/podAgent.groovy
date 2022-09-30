@@ -1,4 +1,4 @@
-def call(String... containers = [bash]) {
+def generateYaml(String... containers = [bash]) {
     def podAgentYaml = getHeader()
 
     containers.each { containerName ->
