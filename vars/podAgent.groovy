@@ -41,7 +41,7 @@ spec:
 def getDocker() {
     '''    
     - name: docker
-      image: docker:19.03.1
+      image: docker:20.10.18
       command:
         - sleep
       args:
@@ -50,7 +50,7 @@ def getDocker() {
         - name: docker-socket
           mountPath: /var/run
     - name: docker-daemon
-      image: docker:19.03.1-dind
+      image: docker:20.10.18-dind
       securityContext:
         privileged: true
       volumeMounts:
