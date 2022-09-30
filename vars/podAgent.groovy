@@ -1,4 +1,4 @@
-def generateYaml(String... containers = [bash]) {
+def call(String... containers = [bash]) {
     def podAgentYaml = getHeader()
 
     containers.each { containerName ->
@@ -18,6 +18,7 @@ def generateYaml(String... containers = [bash]) {
         }
     }
     podAgentYaml += getResourceLimits()
+
     return podAgentYaml
 }
 
